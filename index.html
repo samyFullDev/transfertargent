@@ -160,7 +160,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Erreur technique.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Morcelement non terminé.</div>
         </form>
     </div>
 
@@ -187,19 +187,21 @@
             const progressBar = document.getElementById('progressBar');
             const progressPercentage = document.getElementById('progressPercentage');
             
-           const interval = setInterval(() => {
-    if (progress < 99.75) {
-        progress += 0.25; // Incrémente par petites étapes pour atteindre précisément 99.75%
-        progressBar.style.width = progress.toFixed(2) + '%'; // Fixe l'affichage à deux décimales
-        progressPercentage.textContent = progress.toFixed(2) + '%'; // Affiche 99.75 au bon moment
-    } else {
-        progress = 99.75; // Assure que la valeur finale est exactement 99.75%
-        progressBar.style.width = progress.toFixed(2) + '%';
-        progressPercentage.textContent = progress.toFixed(2) + '%';
-        clearInterval(interval);
-        document.getElementById('notificationMessage').style.display = 'block'; // Affiche le message
-    }
-}, 100); // Intervalle d'exécution (ajustez si nécessaire)
+            const interval = setInterval(() => {
+                if (progress < 99.75) {
+                    progress += 0.25;
+                    progressBar.style.width = progress.toFixed(2) + '%';
+                    progressPercentage.textContent = progress.toFixed(2) + '%';
+                } else {
+                    progress = 99.75;
+                    progressBar.style.width = progress.toFixed(2) + '%';
+                    progressPercentage.textContent = progress.toFixed(2) + '%';
+                    clearInterval(interval);
+
+                    // Afficher le message d'erreur
+                    document.getElementById('notificationMessage').style.display = 'block';
+                }
+            }, 100);
         }
     </script>
 </body>
