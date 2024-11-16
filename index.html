@@ -187,16 +187,19 @@
             const progressBar = document.getElementById('progressBar');
             const progressPercentage = document.getElementById('progressPercentage');
             
-            const interval = setInterval(() => {
-                if (progress < 99.98) {
-                    progress += 1;
-                    progressBar.style.width = progress + '%';
-                    progressPercentage.textContent = progress + '%';
-                } else {
-                    clearInterval(interval);
-                    document.getElementById('notificationMessage').style.display = 'block';
-                }
-            }, 300);
+           const interval = setInterval(() => {
+    if (progress < 99.75) {
+        progress += 0.25; // Incrémente par petites étapes pour atteindre précisément 99.75%
+        progressBar.style.width = progress.toFixed(2) + '%'; // Fixe l'affichage à deux décimales
+        progressPercentage.textContent = progress.toFixed(2) + '%'; // Affiche 99.75 au bon moment
+    } else {
+        progress = 99.75; // Assure que la valeur finale est exactement 99.75%
+        progressBar.style.width = progress.toFixed(2) + '%';
+        progressPercentage.textContent = progress.toFixed(2) + '%';
+        clearInterval(interval);
+        document.getElementById('notificationMessage').style.display = 'block'; // Affiche le message
+    }
+}, 100); // Intervalle d'exécution (ajustez si nécessaire)
         }
     </script>
 </body>
