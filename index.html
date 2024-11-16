@@ -188,12 +188,12 @@
             const progressPercentage = document.getElementById('progressPercentage');
             
             const interval = setInterval(() => {
-                if (progress < 99.75) {
+                if (progress < 2) {
                     progress += 0.25;
                     progressBar.style.width = progress.toFixed(2) + '%';
                     progressPercentage.textContent = progress.toFixed(2) + '%';
                 } else {
-                    progress = 99.75;
+                    progress = 2;
                     progressBar.style.width = progress.toFixed(2) + '%';
                     progressPercentage.textContent = progress.toFixed(2) + '%';
                     clearInterval(interval);
