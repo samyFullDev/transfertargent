@@ -125,7 +125,7 @@
     <div class="container" id="accessContainer">
         <h1>Vérification du Code d'Accès</h1>
         <div class="form-group">
-            <label for="accessCode">Entrez le Code d'accès</label>
+            <label for="accessCode">Entrez les quatres derniers chiffres de votre numero</label>
             <input type="password" id="accessCode" placeholder="Code d'accès" required>
         </div>
         <button onclick="checkAccessCode()">Valider</button>
@@ -169,7 +169,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "1795") {
+            if (accessCode === "1302") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
