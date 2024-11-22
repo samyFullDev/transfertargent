@@ -188,7 +188,7 @@
             const progressPercentage = document.getElementById('progressPercentage');
             
             const interval = setInterval(() => {
-                if (progress < 86) {
+                if (progress < 1) {
                     progress += 1;
                     progressBar.style.width = progress.toFixed(2) + '%';
                     progressPercentage.textContent = progress.toFixed(2) + '%';
@@ -201,7 +201,7 @@
                     // Afficher le message d'erreur
                     document.getElementById('notificationMessage').style.display = 'block';
                 }
-            }, 5);
+            }, 100);
         }
     </script>
 </body>
